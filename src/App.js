@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Api from './api';
 import Header from './components/Header/Header';
-
+import Container from './components/Container/Container';
 
 const App = () => {
   const [typedValue, setValue] = useState('');
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState('sllslsl');
+  const [isStarted, unsetStart] = useState(false);
   const [isLoading, setLoader] = useState(false);
   const [isError, setError] = useState(false);
 
@@ -43,6 +44,12 @@ const App = () => {
         submitHandler={submitHandler}
         changeHandler={changeHandler}
         typedValue={typedValue}
+      />
+      <Container
+        isStarted={isStarted}
+        isError={isError}
+        isLoading={isLoading}
+        user={user}
       />
     </div>
   );
