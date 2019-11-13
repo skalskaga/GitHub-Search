@@ -1,5 +1,7 @@
 # GitHub Search
 
+
+## [Click to see demo](https://skalskaga.github.io/GitHub-Search/)
 Simple application that allows users to type the name of the GitHub user and presents the following information:
 - User name
 - User description
