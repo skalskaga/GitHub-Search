@@ -5,8 +5,8 @@ import Container from './components/Container/Container';
 
 const App = () => {
   const [typedValue, setValue] = useState('');
-  const [user, setUser] = useState('sllslsl');
-  const [isStarted, unsetStart] = useState(false);
+  const [user, setUser] = useState('');
+  const [isStarted, unsetStart] = useState(true);
   const [isLoading, setLoader] = useState(false);
   const [isError, setError] = useState(false);
 
@@ -15,20 +15,24 @@ const App = () => {
     await api.get()
     .then(data => {
       setUser(data);
+      setLoader(false);
+      setError(false);
     })
     .catch(() => {
       setError(true);
+      setLoader(false);
+      setUser('unknown');
     })
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
+    unsetStart(false);
     if(typedValue ==='') {
-      // todo
-
+      setError(true);
     } else {
       setUser('');
-      // todo: handle loader?
+      setLoader(true);
       fetchData();
       setValue('');
     }
