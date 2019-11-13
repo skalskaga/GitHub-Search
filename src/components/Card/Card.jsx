@@ -11,8 +11,7 @@ const Card = (props) => {
           <img
             src={props.user.avatar_url}
             alt='user avatar'
-            width='260'
-            height='260'
+            className='user-image'
           />
         </div>
         <div className='user-info'>
